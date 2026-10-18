@@ -13,11 +13,10 @@ class KategoriSeeder extends Seeder
     public function run(): void
     {
         DB::table('kategoris')->insert([
-            ['nama_kategori' => 'Elektronik', 'deskripsi' => 'Kategori untuk barang elektronik seperti komputer, laptop, dan perangkat lainnya.', 'created_at' => now(), 'updated_at' => now()],
-            ['nama_kategori' => 'Peralatan Laboratorium', 'deskripsi' => 'Kategori untuk peralatan yang digunakan di laboratorium.', 'created_at' => now(), 'updated_at' => now()],
-            ['nama_kategori' => 'Peralatan Kantor', 'deskripsi' => 'Kategori untuk peralatan yang digunakan di kantor.', 'created_at' => now(), 'updated_at' => now()],
-            ['nama_kategori' => 'Furniture', 'deskripsi' => 'Kategori untuk furniture seperti meja, kursi, dan lemari.', 'created_at' => now(), 'updated_at' => now()],
-            ['nama_kategori' => 'Alat Tulis', 'deskripsi' => 'Kategori untuk alat tulis seperti pena, kertas, dan buku catatan.', 'created_at' => now(), 'updated_at' => now()],
+            ['nama_kategori' => 'Komputer & Laptop', 'deskripsi' => 'Kategori untuk komputer dan laptop.', 'created_at' => now(), 'updated_at' => now()],
+            ['nama_kategori' => 'Perangkat Jaringan', 'deskripsi' => 'Kategori untuk perangkat jaringan.', 'created_at' => now(), 'updated_at' => now()],
+            ['nama_kategori' => 'Alat Perkabelan', 'deskripsi' => 'Kategori untuk alat perkabelan.', 'created_at' => now(), 'updated_at' => now()],
+            ['nama_kategori' => 'Multimedia', 'deskripsi' => 'Kategori untuk perangkat multimedia.', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }
