@@ -12,12 +12,30 @@ class BarangController extends Controller
 {
     public function dashboard()
     {
-        //
+        $totalBarang = Barang::count();
+        $totalKategori = Kategori::count();
+        $stokRendah = Barang::where('stok', '<=', 3)->count();
+        $barangsByStatus = Barang::selectRaw('status, COUNT(*) as total')
+            ->groupBy('status')
+            ->pluck('total', 'status')
+            ->toArray();
+        $recentBarangs = Barang::with('kategori')
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return view('dashboard', compact(
+            'totalBarang',
+            'totalKategori',
+            'stokRendah',
+            'barangsByStatus',
+            'recentBarangs'
+        ));
     }
 
     public function index()
     {
-        $barangs = Barang::with('kategori')->latest()->paginate(10);
+        $barangs = Barang::with('kategori')->oldest()->paginate(10);
 
         return view('barang.index', compact('barangs'));
     }
@@ -84,8 +102,12 @@ class BarangController extends Controller
             ->with('success', 'Barang "'.$barang->kode_barang.'" berhasil diperbarui.');
     }
 
-    public function destroy()
+    public function destroy(Barang $barang)
     {
-        //
+        $kodeBarang = $barang->kode_barang;
+        $barang->delete();
+
+        return redirect()->route('barang.index')
+            ->with('success', 'Barang "'.$kodeBarang.'" berhasil dihapus.');
     }
 }
