@@ -15,7 +15,6 @@
                 </h1>
                 <nav class="flex items-center space-x-4">
                     <a href="{{ route('barang.index') }}" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">Daftar Barang</a>
-                    <a href="{{ route('barang.create') }}" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Tambah Barang</a>
                 </nav>
             </div>
         </div>

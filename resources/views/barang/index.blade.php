@@ -32,7 +32,7 @@
                         <td class="px-6 py-4 text-sm text-slate-900">{{ $barang->nama_barang }}</td>
                         <td class="px-6 py-4 text-sm text-slate-600">{{ $barang->kategori->nama_kategori ?? '-' }}</td>
                         <td class="px-6 py-4 text-sm text-slate-900">
-                            @if($barang->stok <= 5)
+                            @if($barang->stok <= 3)
                                 <span class="font-medium text-amber-600">{{ $barang->stok }}</span>
                             @else
                                 {{ $barang->stok }}
